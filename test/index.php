@@ -2,7 +2,7 @@
 
 <?php
 
-$text = "メールアドレス hoge@example.com hogehoge@example.com";
+$text = "メールアドレス hoge@example.com hogehoge@example.com hoge-12345.hoge_hoge@example.com";
 
 $list = \Ponponumi\EmailSearch\EmailSearch::search($text);
 
