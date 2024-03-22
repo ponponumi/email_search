@@ -40,4 +40,11 @@ class EmailSearch{
 
     return $result;
   }
+
+  public static function check(string $text){
+    // メールアドレスが含まれるかどうか確認
+    $pattern = self::patternGet();
+    $result = preg_match($pattern,$text);
+    return $result == 1;
+  }
 }
