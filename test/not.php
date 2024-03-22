@@ -6,6 +6,7 @@ $text = "メールアドレスはありません";
 
 $list = \Ponponumi\EmailSearch\EmailSearch::search($text);
 $list_pos = \Ponponumi\EmailSearch\EmailSearch::searchPos($text);
+$check = \Ponponumi\EmailSearch\EmailSearch::check($text);
 
 ?>
 
@@ -13,5 +14,6 @@ $list_pos = \Ponponumi\EmailSearch\EmailSearch::searchPos($text);
 
 <pre><?php var_dump($list) ?></pre>
 <pre><?php var_dump($list_pos) ?></pre>
+<pre><?php var_dump($check) ?></pre>
 
 <?php require __DIR__ . "/footer.php" ?>
