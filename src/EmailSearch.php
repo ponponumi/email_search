@@ -2,6 +2,8 @@
 
 namespace Ponponumi\EmailSearch;
 
+use Ponponumi\MatchPos\Search;
+
 class EmailSearch{
   public static function patternGet(){
     return '/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/';
@@ -18,25 +20,7 @@ class EmailSearch{
   public static function searchPos(string $text){
     // メールアドレスの開始位置も返す
     $email_list = self::search($text);
-    $result = [];
-
-    if($email_list !== []){
-      // メールアドレスがあれば
-      $start = 0;
-
-      foreach ($email_list as $email) {
-        $pos = mb_strpos($text,$email,$start);
-
-        if($pos !== false){
-          $start = $pos + 1;
-        }
-
-        $result[] = [
-          "pos" => $pos,
-          "value" => $email,
-        ];
-      }
-    }
+    $result = Search::multibyte($text,$email_list);
 
     return $result;
   }
